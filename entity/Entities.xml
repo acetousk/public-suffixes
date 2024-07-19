@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This software is in the public domain under CC0 1.0 Universal plus a 
+Grant of Patent License.
+
+To the extent possible under law, the author(s) have dedicated all
+copyright and related and neighboring rights to this software to the
+public domain worldwide. This software is distributed without any
+warranty.
+
+You should have received a copy of the CC0 Public Domain Dedication
+along with this software (see the LICENSE.md file). If not, see
+<http://creativecommons.org/publicdomain/zero/1.0/>.
+-->
+<entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/entity-definition-3.xsd">
+
+    <!-- public-suffixes & Related Entities -->
+    <entity entity-name="DomainSuffix" package="moqui.basic" use="configuration" short-alias="enums" cache="true">
+        <field name="suffixId" type="id" is-pk="true"/>
+        <field name="suffix" type="text-medium"/>
+        <field name="prefix" type="text-medium"/>
+
+        <index name="DOMAIN_SUFFIX_INDEX" unique="true"><index-field name="suffix"/></index>
+        <index name="DOMAIN_SUFFIX_INDEX" unique="true"><index-field name="prefix"/></index>
+<!--        TODO: If needed, implement type based on whether line is before or after // ===BEGIN PRIVATE DOMAINS===
+        <field name="typeEnumId" type="id"/>
+        <relationship type="one" related="Enumeration" title="Type" fk-name="enum"/>
+        <seed-data>
+            <moqui.basic.EnumerationType type="DomainSuffixType" description="Domain Suffix Type"/>
+            <moqui.basic.Enumeration enumId="DS_ICANN" description="ICANN" enumTypeId="DomainSuffixType"/>
+            <moqui.basic.Enumeration enumId="DS_PRIVATE" description="Private" enumTypeId="DomainSuffixType"/>
+        </seed-data>-->
+    </entity>
+</entities>
