@@ -36,7 +36,7 @@ along with this software (see the LICENSE.md file). If not, see
 <!--            </script>-->
 
             <entity-find entity-name="moqui.basic.DomainSuffix" list="domainSuffixList">
-                <econdition field-name="prefix" operator="like" value="prefix || '%'"/>
+                <econdition field-name="prefix" operator="begins-field" from="domain.reverse()" to-field-name="prefix"/>
             </entity-find>
             <log level="warn" message="domainSuffixList: ${domainSuffixList}"/>
 
